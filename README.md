@@ -14,9 +14,9 @@ https://github.com/42-AI/bootcamp_python
 - [x] exercice 9
 - [x] exercice 10
 # module 01
-- [x] exercice 1
-- [x] exercice 2
-- [x] exercice 3
-- [] exercice 4
-- [] exercice 5
-- [] exercice 6
+- [x] exercice 00
+- [x] exercice 01
+- [x] exercice 02
+- [] exercice 03
+- [] exercice 04
+- [] exercice 05

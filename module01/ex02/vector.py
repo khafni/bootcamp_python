@@ -10,7 +10,7 @@ class Vector:
 
     def __add__(self, v_or_s):
         r_lst = []
-        if isinstance(v_or_s, float):
+        if isinstance(v_or_s, int) or isinstance(v_or_s, float):
             for e1 in self.list:
                 r_lst.append(e1 + v_or_s)
         elif isinstance(v_or_s, Vector):
@@ -23,11 +23,11 @@ class Vector:
         return r_v
 
     def __radd__(self, v_or_s):
-        return self._add__(v_or_s)
+        return self + v_or_s 
 
     def __sub__(self, v_or_s):
         r_lst = []
-        if isinstance(v_or_s, float):
+        if isinstance(v_or_s, int) or isinstance(v_or_s, float):
             for e1 in self.list:
                 r_lst.append(e1 - v_or_s)
         elif isinstance(v_or_s, Vector):
@@ -48,18 +48,18 @@ class Vector:
         return Vector([i / num for i in self.list])
 
     def __rtruediv__(self, num):
-        arr = []
         for n in self.list:
             if num == 0:
                 raise Exception("dividing by 0")
-            arr.append(num / n)
-        return Vector(arr)
+        return Vector([num / i for i in self.list])
 
     def __mul__(self, v_or_s):
         r = 0
         if isinstance(v_or_s, float):
+            r_lst = []
             for e1 in self.list:
                 r_lst.append(e1 * v_or_s)
+            return r_lst
         elif isinstance(v_or_s, Vector):
             if self.size != v_or_s.size:
                 raise Exception(
@@ -69,7 +69,7 @@ class Vector:
         return r
 
     def __rmul__(self, v_or_s):
-        return __mul__(self, v_or_s)
+        return self * v_or_s 
     def __str__(self):
         i = 0
         s = "{} elements floats Vector: {}".format(self.size, self.list)
