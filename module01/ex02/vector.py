@@ -55,7 +55,7 @@ class Vector:
 
     def __mul__(self, v_or_s):
         r = 0
-        if isinstance(v_or_s, float):
+        if isinstance(v_or_s, float) or isinstance(v_or_s, int):
             r_lst = []
             for e1 in self.list:
                 r_lst.append(e1 * v_or_s)
