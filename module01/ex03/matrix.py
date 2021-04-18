@@ -1,4 +1,4 @@
-
+from vector import Vector
 # reverse magic methods aren't implemented for commutative operations 
 class Matrix:
     def __init__(self, mat_or_shape):
@@ -69,6 +69,22 @@ class Matrix:
         return mat
 
     def __mul__(self, m_or_s):
+        mat = Matrix((self.shape[0], self.shape[1]))
+        if isinstance(m_or_s, float) or isinstance(m_or_s, int):
+            for i in range(mat.shape[0]):
+                for j in range(mat.shape[1]):
+                    if self.data[i][j] == 0:
+                        raise Exception("you can't devide by 0")
+                    mat.data[i][j] = self.data[i][j] * m_or_s
+            return mat
+        elif isinstance(m_or_s, Matrix):
+            for i in range(mat.shape[0]):
+                for j in range(mat.shape[1]):
+                    if self.data[i][j] == 0:
+                        raise Exception("you can't devide by 0")
+                    mat.data[i][j] = self.data[i][j] * m_or_s[i][j] 
+            return mat
+    def __rmul__(self, m_or_s):
         mat = Matrix((self.shape[0], self.shape[1]))
         if isinstance(m_or_s, float) or isinstance(m_or_s, int):
             for i in range(mat.shape[0]):
