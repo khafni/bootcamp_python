@@ -8,7 +8,7 @@ class Matrix:
             self.data = mat_or_shape
             self.shape = (len(mat_or_shape), len(mat_or_shape[0]))
         elif isinstance(mat_or_shape, tuple):
-            if len(mat_or_shape) != 2 or mat_or_shape[0] != mat_or_shape[1]:
+            if len(mat_or_shape) != 2:
                 raise Exception(("wrong matrix dimensions"))
             self.data = [[0 for j in range(mat_or_shape[1])] for i in range(mat_or_shape[0])]
             self.shape = mat_or_shape
@@ -69,34 +69,53 @@ class Matrix:
         return mat
 
     def __mul__(self, m_or_s):
-        mat = Matrix((self.shape[0], self.shape[1]))
         if isinstance(m_or_s, float) or isinstance(m_or_s, int):
+            mat = Matrix((self.shape[0], self.shape[1]))
             for i in range(mat.shape[0]):
                 for j in range(mat.shape[1]):
-                    if self.data[i][j] == 0:
-                        raise Exception("you can't devide by 0")
                     mat.data[i][j] = self.data[i][j] * m_or_s
             return mat
         elif isinstance(m_or_s, Matrix):
+            mat = Matrix((self.shape[0], m_or_s.shape[1]))
+            if self.shape[1] != m_or_s.shape[0]:
+                raise Exception("matrix multiplication error:\n M1 * M2 can't be done since M1 num of columns != M2 number of rows")
             for i in range(mat.shape[0]):
-                for j in range(mat.shape[1]):
-                    if self.data[i][j] == 0:
-                        raise Exception("you can't devide by 0")
-                    mat.data[i][j] = self.data[i][j] * m_or_s[i][j] 
+                for j in range(m_or_s.shape[1]):
+                    for k in range(m_or_s.shape[0]):
+                        mat.data[i][j] += self.data[i][k] * m_or_s.data[k][j] 
             return mat
+        elif isinstance(m_or_s, Vector):
+            if self.shape[1] != m_or_s.size:
+                raise Exception("matrix vector multiplication error:\n M1 * v1 can't be done since M1 num of columns != v1 size")
+            mat = Matrix((self.shape[0], 1))
+            for i in range(mat.shape[0]):
+                for k in range(m_or_s.size):
+                    mat.data[i][0] += self.data[i][k] * m_or_s.list[k]
+            return mat
+
     def __rmul__(self, m_or_s):
-        mat = Matrix((self.shape[0], self.shape[1]))
         if isinstance(m_or_s, float) or isinstance(m_or_s, int):
+            mat = Matrix((self.shape[0], self.shape[1]))
             for i in range(mat.shape[0]):
                 for j in range(mat.shape[1]):
-                    if self.data[i][j] == 0:
-                        raise Exception("you can't devide by 0")
                     mat.data[i][j] = self.data[i][j] * m_or_s
             return mat
         elif isinstance(m_or_s, Matrix):
+            mat = Matrix((self.shape[0], m_or_s.shape[1]))
+            if self.shape[1] != m_or_s.shape[0]:
+                raise Exception("matrix multiplication error:\n M1 * M2 can't be done since M1 num of columns != M2 number of rows")
             for i in range(mat.shape[0]):
-                for j in range(mat.shape[1]):
-                    if self.data[i][j] == 0:
-                        raise Exception("you can't devide by 0")
-                    mat.data[i][j] = self.data[i][j] * m_or_s[i][j] 
+                for j in range(m_or_s.shape[1]):
+                    for k in range(m_or_s.shape[0]):
+                        mat.data[i][j] += self.data[i][k] * m_or_s.data[k][j] 
             return mat
+        elif isinstance(m_or_s, Vector):
+            if self.shape[1] != m_or_s.size:
+                raise Exception("matrix vector multiplication error:\n M1 * v1 can't be done since M1 num of columns != v1 size")
+            mat_v = Matrix((m_or_s.size, 1))
+            mat = Matrix((self.shape[0], 1))
+            
+            
+            return mat
+
+       
