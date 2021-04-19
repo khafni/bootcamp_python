@@ -20,8 +20,8 @@ mat4 = Matrix([[3, -1], [1, 2], [6, 1]])
 mat5 = mat3 * mat4
 """ print("")
 print(mat5)
- """
+"""
+
 mat6 = Matrix([[3,2,0], [0,4,1], [2,0,1]])
 v = Vector([4, 3, 1])
-
 print(mat6 * v)

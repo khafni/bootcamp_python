@@ -69,6 +69,7 @@ class Matrix:
         return mat
 
     def __mul__(self, m_or_s):
+        m1 = self
         if isinstance(m_or_s, float) or isinstance(m_or_s, int):
             mat = Matrix((self.shape[0], self.shape[1]))
             for i in range(mat.shape[0]):
@@ -76,13 +77,14 @@ class Matrix:
                     mat.data[i][j] = self.data[i][j] * m_or_s
             return mat
         elif isinstance(m_or_s, Matrix):
-            mat = Matrix((self.shape[0], m_or_s.shape[1]))
-            if self.shape[1] != m_or_s.shape[0]:
+            m2 = m_or_s
+            mat = Matrix((m1.shape[0], m_or_s.shape[1]))
+            if m1.shape[1] != m2.shape[0]:
                 raise Exception("matrix multiplication error:\n M1 * M2 can't be done since M1 num of columns != M2 number of rows")
             for i in range(mat.shape[0]):
-                for j in range(m_or_s.shape[1]):
-                    for k in range(m_or_s.shape[0]):
-                        mat.data[i][j] += self.data[i][k] * m_or_s.data[k][j] 
+                for j in range(m2.shape[1]):
+                    for k in range(m2.shape[0]):
+                        mat.data[i][j] += m1.data[i][k] * m2.data[k][j] 
             return mat
         elif isinstance(m_or_s, Vector):
             if self.shape[1] != m_or_s.size:
@@ -92,8 +94,10 @@ class Matrix:
                 for k in range(m_or_s.size):
                     mat.data[i][0] += self.data[i][k] * m_or_s.list[k]
             return mat
+        return 1
 
     def __rmul__(self, m_or_s):
+        m = self
         if isinstance(m_or_s, float) or isinstance(m_or_s, int):
             mat = Matrix((self.shape[0], self.shape[1]))
             for i in range(mat.shape[0]):
@@ -101,21 +105,15 @@ class Matrix:
                     mat.data[i][j] = self.data[i][j] * m_or_s
             return mat
         elif isinstance(m_or_s, Matrix):
-            mat = Matrix((self.shape[0], m_or_s.shape[1]))
-            if self.shape[1] != m_or_s.shape[0]:
+            m1 = m_or_s
+            m2 = self
+            mat = Matrix((m1.shape[0], m_or_s.shape[1]))
+            if m1.shape[1] != m2.shape[0]:
                 raise Exception("matrix multiplication error:\n M1 * M2 can't be done since M1 num of columns != M2 number of rows")
             for i in range(mat.shape[0]):
-                for j in range(m_or_s.shape[1]):
-                    for k in range(m_or_s.shape[0]):
-                        mat.data[i][j] += self.data[i][k] * m_or_s.data[k][j] 
-            return mat
-        elif isinstance(m_or_s, Vector):
-            if self.shape[1] != m_or_s.size:
-                raise Exception("matrix vector multiplication error:\n M1 * v1 can't be done since M1 num of columns != v1 size")
-            mat_v = Matrix((m_or_s.size, 1))
-            mat = Matrix((self.shape[0], 1))
-            
-            
+                for j in range(m2.shape[1]):
+                    for k in range(m2.shape[0]):
+                        mat.data[i][j] += m1.data[i][k] * m2.data[k][j]
             return mat
 
        
