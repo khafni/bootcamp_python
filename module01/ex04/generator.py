@@ -8,7 +8,8 @@ def list_shuffle(lst):
 
 def generator(text, sep=" ", option=None):
     if not isinstance(text, str):
-        return "ERROR"
+        yield "ERROR"
+        return
     l = text.split(sep)
     if option == "shuffle":
         l = list_shuffle(l)
@@ -20,21 +21,24 @@ def generator(text, sep=" ", option=None):
     else:
         yield "ERROR"
         return
-
     for word in l:
         yield word
 
 text = "Le Lorem Ipsum est simplement du faux texte."
-for word in generator(text, sep=" "):
+
+""" for word in generator(text, sep=" "):
     print(word)
-print("----------------------------")
+print("----------------------------") """
 for word in generator(text, sep=" ", option="shuffle"):
     print(word)
-print("---------------------------")   
+""" print("---------------------------")   
 for word in generator(text, sep=" ", option="ordered"):
     print(word)
 print("---------------------------")
 text = "Lorem Ipsum Lorem Ipsum"
-for word in generator(text, sep=" ", option="nique"):
+for word in generator(text, sep=" ", option="unique"):
     print(word)
 print("---------------------------")
+text = 1.0
+for word in generator(text, sep="."):
+    print(word) """

@@ -19,5 +19,6 @@ https://github.com/42-AI/bootcamp_python
 - [x] exercice 01
 - [x] exercice 02 : The Vector
 - [x] exercice 03 : The Matrix
-- [] exercice 04 : Generator
-- [] exercice 05 : Working with lists
+- [x] exercice 04 : Generator
+- [x] exercice 05 : Working with lists
+- [] exercice 06 : Bank account
