@@ -23,4 +23,4 @@ https://github.com/42-AI/bootcamp_python
 - [x] exercice 05 : Working with lists
 - [x] exercice 06 : Bank account
 
-:confused: (didn't implement the fix method because it's meaningless you can't remove an attricbute from an instance)
+:confused: (didn't implement ex06 fix method because it's meaningless you can't remove an attribute from an instance)
