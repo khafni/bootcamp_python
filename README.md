@@ -21,4 +21,4 @@ https://github.com/42-AI/bootcamp_python
 - [x] exercice 03 : The Matrix
 - [x] exercice 04 : Generator
 - [x] exercice 05 : Working with lists
-- [] exercice 06 : Bank account
+- [x] exercice 06 : Bank account (didn't implement the fix method because it's meaningless you can't remove an attricbute from an instance)
