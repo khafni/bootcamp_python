@@ -24,3 +24,12 @@ https://github.com/42-AI/bootcamp_python
 - [x] exercice 06 : Bank account
 
 :confused: (didn't implement ex06 fix method because it's meaningless you can't remove an attribute from an instance)
+
+# module 02:
+## Decorators, multiprocessing, lambda, build package, . . .
+- [] exercice 00 Map, filter, reduce
+- [] exercice 01 args and kwargs
+- [] exercice 02 the logger
+- [] exercice 03 json issues
+- [] exercice 04 miniPack
+- [] exercice 05 TinyStatistician
