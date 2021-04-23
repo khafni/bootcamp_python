@@ -27,7 +27,7 @@ https://github.com/42-AI/bootcamp_python
 
 # module 02:
 ## Decorators, multiprocessing, lambda, build package, . . .
-- [] exercice 00 Map, filter, reduce
+- [x] exercice 00 Map, filter, reduce
 - [] exercice 01 args and kwargs
 - [] exercice 02 the logger
 - [] exercice 03 json issues
