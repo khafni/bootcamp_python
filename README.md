@@ -30,6 +30,6 @@ https://github.com/42-AI/bootcamp_python
 - [x] exercice 00 Map, filter, reduce
 - [x] exercice 01 args and kwargs
 - [x] exercice 02 the logger
-- [] exercice 03 json issues
+- [x] exercice 03 json issues
 - [] exercice 04 miniPack
 - [] exercice 05 TinyStatistician
