@@ -5,6 +5,6 @@ setup(
     author="khalil hafni",
     author_email="hafnixwork@gmail.com",
     url="github.com/khafni",
-    packages=["logging", "progressbar"],
+    packages=["ai42"],
     version="0.0"
 )
