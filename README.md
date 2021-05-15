@@ -33,3 +33,11 @@ https://github.com/42-AI/bootcamp_python
 - [x] exercice 03 json issues
 - [x] exercice 04 miniPack
 - [x] exercice 05 TinyStatistician
+
+# module 03:
+## NumPy array, slicing, stacking, dimensions, broadcasting, normalization...
+- [] exercice 00 NumPyCreator 
+- [] exercice 01 ImageProcessor
+- [] exercice 02 ScrapBooker
+- [] exercice 03 ColorFilter
+- [] exercice 04  K-means Clustering
